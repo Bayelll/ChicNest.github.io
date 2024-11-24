@@ -1,0 +1,136 @@
+/* Основные стили страницы */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 0.5s ease;
+}
+
+body:hover {
+    background-color: #2d2d2d; /* Динамическая смена фона */
+}
+
+/* Контейнер для текста */
+.container {
+    background-color: #333;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: scale(1.05); /* Увеличение контейнера при наведении */
+}
+
+/* Заголовок */
+h1 {
+    color: #fff;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: fadeIn 1.5s ease;
+}
+
+/* Стили для каждого варианта шрифта */
+.font-display {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+}
+
+.font-option {
+    font-size: 1.6rem;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #444;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+}
+
+.font-option:hover {
+    transform: translateY(-5px); /* Поднятие блока при наведении */
+    background-color: #f5a623; /* Изменение фона */
+    color: white; /* Изменение цвета текста */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+}
+
+.font-option:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b); /* Градиент */
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s ease;
+}
+
+.font-option:hover:before {
+    opacity: 0.2; /* Градиент при наведении */
+}
+
+/* Анимация для заголовка */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Анимация для блока с шрифтами */
+.font-display {
+    animation: slideUp 0.8s ease-in-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .font-option {
+        font-size: 1.4rem;
+    }
+}
+
